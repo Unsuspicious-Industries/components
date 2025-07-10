@@ -32,6 +32,9 @@ export interface Props {
   isFullWidth?: boolean;
   showToggleTheme?: boolean;
   position?: string;
+  logoSrc?: string;
+  logoName?: string;
+  logoAcronym?: string;
 }
 
 const {
@@ -43,6 +46,9 @@ const {
   isFullWidth = false,
   showToggleTheme = false,
   position = "center",
+  logoSrc = undefined,
+  logoName = undefined,
+  logoAcronym = undefined,
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
@@ -55,7 +61,7 @@ console.log(showToggleTheme)
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
-    "top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out",
+    "site-header top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out"
   ]}
   {...isSticky ? { "data-aw-sticky-header":  true } : {}}
   {...id ? { id } : {}}
@@ -64,14 +70,17 @@ console.log(showToggleTheme)
   <div
     class:list={[
       "relative text-default py-3 px-3 md:px-6 mx-auto w-full md:flex md:justify-between",
-      {
-        "max-w-7xl": !isFullWidth,
-      },
+      { "max-w-7xl": !isFullWidth }
     ]}
   >
-    <div class:list={[{ "mr-auto rtl:mr-0 rtl:ml-auto": position === "right" }, "flex justify-between"]}>
+    <div class:list={[
+      position === "right" && "mr-auto",
+      position === "right" && "rtl:mr-0",
+      position === "right" && "rtl:ml-auto",
+      "flex justify-between"
+    ]}>
       <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
+        <Logo src={logoSrc} name={logoName} acronym={logoAcronym} />
       </a>
       <div class="flex items-center md:hidden">
         <ToggleMenu />
@@ -124,8 +133,24 @@ console.log(showToggleTheme)
     </nav>
     <div
       class:list={[
-        { "ml-auto rtl:ml-0 rtl:mr-auto": position === "left" },
-        "md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0",
+        position === "left" && "ml-auto",
+        position === "left" && "rtl:ml-0",
+        position === "left" && "rtl:mr-auto",
+        "md:self-center",
+        "md:flex",
+        "items-center",
+        "md:mb-0",
+        "fixed",
+        "w-full",
+        "md:w-auto",
+        "md:static",
+        "justify-end",
+        "left-0",
+        "rtl:left-auto",
+        "rtl:right-0",
+        "bottom-0",
+        "p-3",
+        "md:p-0"
       ]}
     >
       <div class="items-center flex justify-between w-full md:w-auto">
