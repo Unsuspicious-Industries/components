@@ -82,7 +82,7 @@ export default function FormContainer(FormProps: Form) {
             id={input.name}
             autoComplete={input.autocomplete || 'on'}
             placeholder={input.placeholder || ''}
-            className="py-3 px-4 block w-full text-md rounded-lg border dark:border-gray-700 bg-white dark:bg-zinc-900"
+            className="py-3 px-4 block w-full text-md rounded-lg bg-white "
           />
         </div>
       ))}
@@ -95,7 +95,7 @@ export default function FormContainer(FormProps: Form) {
             name="textarea"
             id="textarea"
             placeholder={FormProps.textarea.placeholder || ''}
-            className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-zinc-900"
+            className="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 bg-white "
           />
         </div>
       )}
