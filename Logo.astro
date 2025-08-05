@@ -5,15 +5,17 @@ export interface Props {
   src?: string;
   name?: string;
   acronym?: string;
+  maxHeight?: string;
 }
 
-import LogoImg from '~/assets/logo/logo.png';
-
-const { src = LogoImg.src, name = SITE?.name, acronym = SITE?.acronym } = Astro.props;
+const { src = "/public/graphics/usi.png", name = SITE?.name, acronym = SITE?.acronym, maxHeight = "2em" } = Astro.props;
 ---
 
 <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-xl md:text-xl font-bold whitespace-nowrap">
-  <img src={src} alt="Logo" class="inline-block md:inline-block mr-2" style="width: 2em; height: 2em;"/>
-  <span class="inline md:hidden">{acronym}</span>
-  <span class="hidden md:inline">{name}</span>
+  <img 
+    src={src} 
+    alt="Logo" 
+    class="inline-block md:inline-block mr-2" 
+    style={`max-height: ${maxHeight}; width: auto; height: auto;`}
+  />
 </span>

@@ -1,38 +1,48 @@
 ---
-import '@fontsource/inter'; // Professional institutional font
-import '@fontsource/crimson-text'; // Academic serif font for headings
+import '@fontsource/crimson-text'; // Main brand font - serif for headings and body
+ // Sans font for code and specific elements
 ---
 
 <style is:inline is:global>
 
   @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Liberation+Mono:wght@400;600&display=swap');
 
   :root {
-    /* Academic Typography */
-    --aw-font-sans: 'Source Sans Pro', sans-serif;
+    /* Brand Typography - following graphics/fonts.md */
+    --aw-font-sans: 'Liberation Mono', monospace;
     --aw-font-serif: 'Crimson Text', serif;
     --aw-font-heading: var(--aw-font-serif);
 
-    /* Institutional Dark Blue Palette */
-    --aw-color-primary: #1e40af; /* Rich blue */
-    --aw-color-secondary: #1e3a8a; /* Deep blue */
-    --aw-color-accent: #3730a3; /* Royal purple-blue */
+    /* Brand Color Palette - following graphics/colors.pdf */
+    --aw-color-primary: #1f2937; /* Midnight Express */
+    --aw-color-secondary: #1f2937; /* Midnight Express */
+    --aw-color-accent: #3730a3; /* Unsuspicious Purple */
 
-    --aw-color-text-heading: #1e3a8a;
-    --aw-color-text-default: #1f2937;
-    --aw-color-text-muted: #4b5159;
+    --aw-color-text-heading: #3730a3; /* Unsuspicious Purple */
+    --aw-color-text-default:  #1f2937; /* Midnight Express */
+    --aw-color-text-muted: #6b7280; /* Raven for secondary text */
 
     --aw-color-border: #e5e7eb;
 
-    --aw-color-bg-page: #ffffff;
-    --aw-color-bg-ft: #f8fafc;
-    --aw-color-bg-fancy: #f1f5f9;
+    --aw-color-bg-page: #ffffff; /* Pure White */
+    --aw-color-bg-ft: #f8fafc; /* Dynamic Light */
+    --aw-color-bg-fancy: #f8fafc; /* Dynamic Light */
+
+    /* Brand-specific CSS variables from graphics guidelines */
+    --brand-primary: #3730a3; /* Unsuspicious Purple */
+    --brand-secondary: #1f2937; /* Midnight Express */
+    --brand-muted: #6b7280; /* Raven */
+    --brand-bg-1: #f8fafc; /* Dynamic Light */
+    --brand-bg-2: #ffffff; /* Pure White */
+    --brand-accent-1: #54005b; /* Formal Purple */
+    --brand-accent-2: #06b6d4; /* Happy Cyan */
+    --brand-success: #10b981; /* Success Green */
+    --brand-danger: #ef4444; /* Alert Red */
 
     ::selection {
-      background-color: rgba(30, 64, 175, 0.1);
-      color: #1e40af;
+      background-color: rgba(55, 48, 163, 0.1); /* Unsuspicious Purple with transparency */
+      color: #3730a3; /* Unsuspicious Purple */
     }
   }
-</style>
 </style>
