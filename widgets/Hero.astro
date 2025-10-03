@@ -12,6 +12,7 @@ export interface Props {
   actions?: string | CallToAction[];
   image?: string | any; // TODO: find HTMLElementProps
   imageClass?: string; // New property for image classes
+  layout?: 'fixed' | 'constrained' | 'fullWidth' | 'cover' | 'responsive' | 'contained';
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
   imageClass, // Destructure the new property
+  layout = 'constrained', // Default layout
 } = Astro.props;
 ---
 
@@ -82,6 +84,7 @@ const {
                   loading="eager"
                   width={1024}
                   height={576}
+                  layout={layout}
                   {...image}
                 />
               )}

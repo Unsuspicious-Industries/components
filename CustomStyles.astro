@@ -1,16 +1,15 @@
 ---
 import '@fontsource/crimson-text'; // Main brand font - serif for headings and body
- // Sans font for code and specific elements
+import '@fontsource/fira-mono'; // Monospace font for code and specific elements
 ---
 
 <style is:inline is:global>
 
-  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Liberation+Mono:wght@400;600&display=swap');
+  /* Using local fontsource packages instead of Google Fonts for better reliability */
 
   :root {
     /* Brand Typography - following graphics/fonts.md */
-    --aw-font-sans: 'Liberation Mono', monospace;
+    --aw-font-sans: 'Fira Mono', 'Liberation Mono', monospace;
     --aw-font-serif: 'Crimson Text', serif;
     --aw-font-heading: var(--aw-font-serif);
 
